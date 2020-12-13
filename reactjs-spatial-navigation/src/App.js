@@ -1,12 +1,13 @@
 import React, {PureComponent} from "react";
-import Navigation from "./Components/SpatialNav";
+import FocusItem from "./Components/NavComponents";
+import Navigation from "./Components/NavLogic";
 import "./App.css";
 
 
 
 
 class App extends PureComponent {
-
+  
   componentDidMount(){
     Navigation.initialize();
   }
@@ -18,10 +19,13 @@ class App extends PureComponent {
   render(){
     return (
       <div className="App">
-          <h1 className="focused">elem 1</h1>
+        <FocusItem>
+          <h1>elem 1</h1>
           <h1>elem 2</h1>
+        </FocusItem>
           <h1>elem 3</h1>
           <h1>elem 4</h1>
+          
       </div>
     );
   }
