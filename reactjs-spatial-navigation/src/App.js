@@ -1,6 +1,6 @@
 import React, {PureComponent} from "react";
 import Navigation from "./Components/SpatialNav";
-import './App.css';
+import "./App.css";
 
 
 
@@ -18,10 +18,10 @@ class App extends PureComponent {
   render(){
     return (
       <div className="App">
-        <h1>elem 1</h1>
-        <h1>elem 2</h1>
-        <h1>elem 3</h1>
-        <h1>elem 4</h1>
+          <h1 className="focused">elem 1</h1>
+          <h1>elem 2</h1>
+          <h1>elem 3</h1>
+          <h1>elem 4</h1>
       </div>
     );
   }

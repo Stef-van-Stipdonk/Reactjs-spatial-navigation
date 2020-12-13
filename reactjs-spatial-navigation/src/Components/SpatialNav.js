@@ -13,8 +13,6 @@ let KEYMAP = {
 
 let _ready = false;
 
-// let direction = KEYMAP[keyEvent.keyCode];
-
 function getRectPosition(e){
     var currRect = e.getBoundingClientRect();
     var rect = {
