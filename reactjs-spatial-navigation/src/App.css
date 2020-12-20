@@ -2,6 +2,6 @@
   text-align: center;
 }
 
-.focused {
-  color: green;
+.default {
+  background-color: green;
 }

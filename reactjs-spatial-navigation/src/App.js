@@ -21,11 +21,17 @@ class App extends PureComponent {
       <div className="App">
         <FocusItem>
           <h1>elem 1</h1>
+        </FocusItem>
+        <FocusItem>
           <h1>elem 2</h1>
         </FocusItem>
+        <FocusItem>
           <h1>elem 3</h1>
+        </FocusItem>
+        
+        <FocusItem>
           <h1>elem 4</h1>
-          
+        </FocusItem>
       </div>
     );
   }

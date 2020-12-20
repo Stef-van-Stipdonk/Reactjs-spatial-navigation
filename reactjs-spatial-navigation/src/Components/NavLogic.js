@@ -1,6 +1,9 @@
+
+
 let GlobalConfig = {
     selected: "",
-    defaultFocus: ""
+    defaultFocus: "",
+    candidates: {}
 }
 
 let KEYMAP = {
@@ -12,6 +15,20 @@ let KEYMAP = {
 }
 
 let _ready = false;
+
+function getCandidates() {
+    GlobalConfig.candidates = document.getElementsByClassName("focusItem");
+}
+
+function getCandidatePostion() {
+    var candidates = GlobalConfig.candidates
+    var candidatePostion = []
+
+    for (let index = 0; index < candidates.length; index++) {
+        candidatePostion.push(getRectPosition(candidates[index]));
+    }
+    return candidatePostion;
+}
 
 function getRectPosition(e){
     var currRect = e.getBoundingClientRect();
@@ -31,11 +48,12 @@ function getRectPosition(e){
     rect.center.left = rect.center.right = rect.center.x;
     rect.center.top = rect.center.bottom = rect.center.y;
 
-    console.log(rect);
+    return rect;
 }
 
 function onKeyDown(e) {
     console.log(`${KEYMAP[e.keyCode]} - ${e.keyCode}`);
+    console.log(getCandidatePostion())
 }
 
 function onKeyUp(e) {
@@ -56,7 +74,7 @@ let SpatialNav = {
             // window.addEventListener("keyup", onKeyUp);
             window.addEventListener("focus", onFocus, true);
             _ready = true;
-
+            getCandidates();
             console.log("Navigation initialized");
         }
     },

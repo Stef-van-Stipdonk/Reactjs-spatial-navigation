@@ -3,7 +3,7 @@ import React, { Component } from "react";
 class FocusItem extends Component {
     render() {
         return(
-            <div>
+            <div className="focusItem">
                 {this.props.children}
             </div>
         );
