@@ -15,14 +15,19 @@ let KEYMAP = {
 }
 
 let _ready = false;
+let _activeItem = null;
+
+function getActiveItem(){
+    _activeItem = document.getElementsByClassName("active");
+}
 
 function getCandidates() {
     GlobalConfig.candidates = document.getElementsByClassName("focusItem");
 }
 
 function getCandidatePostion() {
-    var candidates = GlobalConfig.candidates
-    var candidatePostion = []
+    var candidates = GlobalConfig.candidates;
+    var candidatePostion = [];
 
     for (let index = 0; index < candidates.length; index++) {
         candidatePostion.push(getRectPosition(candidates[index]));
@@ -53,7 +58,8 @@ function getRectPosition(e){
 
 function onKeyDown(e) {
     console.log(`${KEYMAP[e.keyCode]} - ${e.keyCode}`);
-    console.log(getCandidatePostion())
+    console.log(getCandidatePostion());
+    console.log(GlobalConfig.candidates);
 }
 
 function onKeyUp(e) {
@@ -74,7 +80,7 @@ let SpatialNav = {
             // window.addEventListener("keyup", onKeyUp);
             window.addEventListener("focus", onFocus, true);
             _ready = true;
-            getCandidates();
+            
             console.log("Navigation initialized");
         }
     },
@@ -84,6 +90,7 @@ let SpatialNav = {
         // window.removeEventListener("keyup", onKeyUp);
         window.removeEventListener("focus", onFocus, true);
         _ready = false;
+        getCandidates();
         console.log("Navigation Terminated")
     }
 }
